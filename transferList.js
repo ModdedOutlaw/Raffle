@@ -10,8 +10,7 @@
   }).then(function (data) {
     
     let list = data.data;
-    let ms = list[0].created_at_time*1000;
-    var time_transfered = new Date(ms);
+ 
     console.log(list);
     console.log(time_transfered);
   
