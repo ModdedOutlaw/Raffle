@@ -75,6 +75,10 @@ header .socialNetworkNavBar .socialNetworkNav img:hover {
 	opacity: 0.5;
 }
 /* Main Content sections */
+
+.time{
+	font-size: 15px;
+}
 .mainContent .section1 {
 	display: block;
 }
@@ -186,6 +190,7 @@ header {
 	float: none;
 }
 	.outputRaffleEntries{
+		text-align: match-parent;
 		color: #ff41c6
 	}
 header .profileLogo .logoPlaceholder {
@@ -272,12 +277,12 @@ header .profileLogo .logoPlaceholder {
 header .profilePhoto {
 	float: left;
 	clear: both;
-	margin-right: 3%;
-	margin-top: 5%;
+	margin-right: 2%;
+	margin-top: 2%;
 }
 header .profileHeader {
 	text-align: left;
-	margin-top: 7%;
+	margin-top: 2%;
 }
 header .socialNetworkNavBar .socialNetworkNav {
 	width: 74px;
@@ -296,11 +301,13 @@ header .socialNetworkNavBar .socialNetworkNav {
 	display: none;
 }
 .mainContent .section1 .section1Content {
-	display: block;
-	margin: 0% 0% 0% 20%;
-	font-family: sans-serif;
-	margin-top: 5%;
-	margin-bottom: 5%;
+		display: block;
+	margin-top: 0%;
+	margin-right: 10%;
+	margin-left: 10%;
+	margin-bottom: 0%;
+	font-family: 'Mulish', sans-serif;
+
 }
 .mainContent .section2 {
 	clear: both;
