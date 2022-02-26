@@ -51,7 +51,7 @@
   let tt = 0;*/
     
   for(let i = 0; i < list.length; i++){
-       outputRaffleEntries.innerHTML += '<br> <b>' + (i+1) + '. </b>' + list[i].sender_name + '<br>';
+       outputRaffleEntries.innerHTML += '<br><b>' + (i+1) + '. </b>' + list[i].sender_name + '<br>';
     }
     console.log(newlist);
 

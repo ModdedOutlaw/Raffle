@@ -36,10 +36,10 @@ header .profilePhoto {
 header .profileHeader h1 {
 	font-family:'Mulish', sans-serif;
 	color: #210051;
-	font-size: 50px;
+	font-size: 60px;
 	text-align: center;
-	font-weight: 700;
-	line-height: 24px;
+	font-weight: 900;
+	line-height: 40px;
 }
 header .profileHeader h3 {
 	font-family: sans-serif;
@@ -80,10 +80,11 @@ header .socialNetworkNavBar .socialNetworkNav img:hover {
 }
 .section1 .sectionTitle, .section2 .sectionTitle {
 	font-family: 'Montserrat', sans-serif;
-	color: rgba(146,146,146,1.00);
+	color: #ff41c6;
 	font-size: 20px;
 	font-weight: 700;
 	text-transform: uppercase;
+	text-align: center;
 }
 .section1 .sectionTitleRule, .section2 .sectionTitleRule {
 	margin: 0 3% 0 0;
@@ -98,11 +99,12 @@ header .socialNetworkNavBar .socialNetworkNav img:hover {
 .mainContent .section1 .section1Content {
 	font-family: ProximaNova;
 	font-size: 24px;
-	font-weight: 100;
-	color: rgba(208,207,207,1.00);
+	font-weight: 300;
+	text-align: center;
+	color: #210051;
 }
 .mainContent .section1 .section1Content span {
-	color: rgba(146,146,146,1.00);
+	color: #ff41c6;
 	font-family: sans-serif;
 }
 .section2 .sectionContentTitle {
@@ -119,7 +121,7 @@ header .socialNetworkNavBar .socialNetworkNav img:hover {
 }
 .section2 .sectionContent {
 	font-family: sans-serif;
-	color: rgba(146,146,146,1.00);
+	color: #ff41c6;
 	font-size: 24px;
 	font-weight: 400;
 	line-height: 1.8;
@@ -183,6 +185,9 @@ header {
 	width: 100%;
 	float: none;
 }
+	.outputRaffleEntries{
+		color: #ff41c6
+	}
 header .profileLogo .logoPlaceholder {
 	display: inline-block;
 }
