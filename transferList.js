@@ -12,7 +12,7 @@
   // milliseconds since Jan 1, 1970, 00:00:00.000 GMT
   console.log(raffleStart.getTime());
 
-  outputRaffleDates.innerHTML += '<tr><td class = "raffleDates"><b>START DATE:  ' + raffleStart + '</b></td><br></tr><tr><td class ="raffleDates" ><b>END DATE:  ' + raffleEnd + '</b></td></tr>';
+  //outputRaffleDates.innerHTML += '<tr><td ><b>START DATE:  ' + raffleStart + '</b></td><br></tr><tr><td ><b>END DATE:  ' + raffleEnd + '</b></td></tr>';
 
   fetch(urlRaffleEntries).then(function (res) {
     return res.json()
