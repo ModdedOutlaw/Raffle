@@ -1,4 +1,3 @@
-  const urlRaffleEntries = "https://wax.api.atomicassets.io/atomicassets/v1/transfers?recipient=modded.gm&schema_name=miners&page=1&limit=100&order=desc&sort=created";
   const outputRaffleEntries = document.querySelector('.outputRaffleEntries');
   const outputRaffleDates = document.querySelector('.outputRaffleDates');
 
@@ -13,6 +12,7 @@
   console.log(raffleStart.getTime());
 
   //outputRaffleDates.innerHTML += '<tr><td ><b>START DATE:  ' + raffleStart + '</b></td><br></tr><tr><td ><b>END DATE:  ' + raffleEnd + '</b></td></tr>';
+  const urlRaffleEntries = "https://wax.api.atomicassets.io/atomicassets/v1/transfers?recipient=moddedwax.gm&schema_name=miners&collection_name=upliftworld&after="+raffleStart.getTime()+"&page=1&limit=100&order=desc&sort=created";
 
   fetch(urlRaffleEntries).then(function (res) {
     return res.json()
@@ -23,7 +23,7 @@
   for(let i = 0; i < list.length; i++){
        let ms = list[i].created_at_time;
        var time_transfered = new Date(ms*1000);
-       if (ms>raffleStart && ms<raffleEndingDate){
+       if (ms>raffleStart && ms<raffleEnd){
        outputRaffleEntries.innerHTML += '<tr><td><b>' + (i+1) + '.</td> </b><td>' + list[i].sender_name + '</td> <td class = "time"> ' + time_transfered +'</tr>';
        }
     }
