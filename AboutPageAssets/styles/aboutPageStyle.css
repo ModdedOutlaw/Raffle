@@ -82,6 +82,14 @@ header .socialNetworkNavBar .socialNetworkNav img:hover {
 .mainContent .section1 {
 	display: block;
 }
+.outputRaffleDates{
+	font-family: sans-serif;
+	color: #210051;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 1.8;
+	overflow-y: auto;
+}
 .section1 .sectionTitle, .section2 .sectionTitle {
 	font-family: 'Montserrat', sans-serif;
 	color: #ff41c6;

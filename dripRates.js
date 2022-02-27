@@ -1,11 +1,22 @@
-  const urlRaffleEntries = "https://wax.api.atomicassets.io/atomicassets/v1/transfers?recipient=modded.gm&schema_name=miners&page=1&limit=100&order=desc&sort=created";
-  const outputRaffleEntries = document.querySelector('.outputRaffleEntries');
+  const urlWalletData = "https://wax.api.atomicassets.io/atomicassets/v1/transfers?recipient=modded.gm&schema_name=miners&page=1&limit=100&order=desc&sort=created";
+  const outputDripRates = document.querySelector('.outputDripRates');
 
 
-  outputRaffleEntries.innerHTML = "";
+  outputDripRates.innerHTML = "";
+  
+  /********************
+   * 
+   * 
+   */
+   const moonLanding = new Date('July 20, 69 20:17:40 GMT+00:00');
+
+   // milliseconds since Jan 1, 1970, 00:00:00.000 GMT
+   console.log(moonLanding.getTime());
+   // expected output: -14182940000
+   
 
 
-  fetch(urlRaffleEntries).then(function (res) {
+  fetch(urlWalletData).then(function (res) {
     return res.json()
   }).then(function (data) {
     
@@ -13,7 +24,7 @@
  
     console.log(list);
     console.log(time_transfered);
-  
+    
     
   for(let i = 0; i < list.length; i++){
        let ms = list[i].created_at_time*1000;
