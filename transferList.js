@@ -5,7 +5,7 @@
   outputRaffleEntries.innerHTML = "";
   outputRaffleDates.innerHTML = "";
 
-  const raffleStart = new Date('FEBRUARY 26, 22 12:00:00 GMT+00:00');
+  const raffleStart = new Date('FEBRUARY 27, 22 12:00:00 GMT+00:00');
   const raffleEnd = new Date('MARCH 7, 22 12:00:00 GMT+00:00');
 
   // milliseconds since Jan 1, 1970, 00:00:00.000 GMT
@@ -19,10 +19,11 @@
   }).then(function (data) {
     
     let list = data.data;
+    console.log(list);
     
   for(let i = 0; i < list.length; i++){
-       let ms = list[i].created_at_time;
-       var time_transfered = new Date(ms*1000);
+       var ms = list[i].created_at_time;
+       var time_transfered = new Date(list[i].created_at_time*1000);
        if (ms>raffleStart && ms<raffleEnd){
        outputRaffleEntries.innerHTML += '<tr><td><b>' + (i+1) + '.</td> </b><td>' + list[i].sender_name + '</td> <td class = "time"> ' + time_transfered +'</tr>';
        }
