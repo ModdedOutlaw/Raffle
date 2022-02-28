@@ -5,7 +5,7 @@
   outputRaffleEntries.innerHTML = "";
   outputRaffleDates.innerHTML = "";
 
-  const raffleStart = new Date('FEBRUARY 27, 22 12:00:00 GMT+00:00');
+  const raffleStart = new Date('FEBRUARY 28, 22 12:00:00 GMT+00:00');
   const raffleEnd = new Date('MARCH 7, 22 12:00:00 GMT+00:00');
 
   // milliseconds since Jan 1, 1970, 00:00:00.000 GMT
