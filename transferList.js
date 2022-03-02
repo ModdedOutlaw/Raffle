@@ -20,14 +20,16 @@
     
     let list = data.data;
 
-    
-  for(let i = 0; i < list.length; i++){
+    j =0;
+
+  for(let i = list.length-1; i >= 0; i--){
        var ms = list[i].created_at_time;
        var time_transfered = new Date(parseInt(list[i].created_at_time));
        if (ms>raffleStart && ms<raffleEnd){
-       outputRaffleEntries.innerHTML += '<tr><td><b>' + (i+1) + '.</td> </b><td>' + list[i].sender_name + '</td> <td class = "time"> ' + time_transfered +'</tr>';
+       outputRaffleEntries.innerHTML += '<tr><td><b>' + (j+1) + '.</td> </b><td>' + list[i].sender_name + '</td> <td class = "time"> ' + time_transfered +'</tr>';
        //outputRaffleEntries.innerHTML += '<tr><td><b>' + (i+1) + '.</td> </b><td>' + list[i].sender_name + '</td></tr>';
-       }
+      j++; 
+      }
     }
 
   }).catch(function (error) {
