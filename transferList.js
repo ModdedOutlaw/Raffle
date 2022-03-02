@@ -6,10 +6,12 @@
   outputRaffleDates.innerHTML = "";
 
   const raffleStart = new Date('FEBRUARY 28, 22 12:00:00 GMT+00:00');
+  //const raffleStart = parseInt("1646187252500");
+  //const raffleStart = parseInt("1646187252500");
   const raffleEnd = new Date('MARCH 7, 22 12:00:00 GMT+00:00');
 
   // milliseconds since Jan 1, 1970, 00:00:00.000 GMT
-  console.log(raffleStart.getTime());
+  //console.log(raffleStart.getTime());
 
   //outputRaffleDates.innerHTML += '<tr><td ><b>START DATE:  ' + raffleStart + '</b></td><br></tr><tr><td ><b>END DATE:  ' + raffleEnd + '</b></td></tr>';
   const urlRaffleEntries = "https://wax.api.atomicassets.io/atomicassets/v1/transfers?recipient=moddedwax.gm&schema_name=miners&collection_name=upliftworld&after="+raffleStart.getTime()+"&page=1&limit=100&order=desc&sort=created";
@@ -29,6 +31,9 @@
        outputRaffleEntries.innerHTML += '<tr><td><b>' + (j+1) + '.</td> </b><td>' + list[i].sender_name + '</td> <td class = "time"> ' + time_transfered +'</tr>';
        //outputRaffleEntries.innerHTML += '<tr><td><b>' + (i+1) + '.</td> </b><td>' + list[i].sender_name + '</td></tr>';
       j++; 
+      }
+      if(j==15){
+        outputRaffleEntries.innerHTML +='<hr>'
       }
     }
 
