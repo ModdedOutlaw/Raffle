@@ -4,7 +4,7 @@
 
   outputRaffleEntries.innerHTML = "";
   outputRaffleDates.innerHTML = "";
-
+  var winner = parseInt("9");
   const raffleStart = new Date('FEBRUARY 28, 22 12:00:00 GMT+00:00');
   //const raffleStart = parseInt("1646187252500");
   //const raffleStart = parseInt("1646187252500");
@@ -28,8 +28,14 @@
        var ms = list[i].created_at_time;
        var time_transfered = new Date(parseInt(list[i].created_at_time));
        if (ms>raffleStart && ms<raffleEnd){
+         if(j==winner-1){
+          outputRaffleEntries.innerHTML += '<tr style="background-color: #06ffff"><td><b>' + (j+1) + '.</td> </b><td>' + list[i].sender_name + '</td> <td class = "time"> ' + time_transfered +'</tr>';
+
+         }else{
        outputRaffleEntries.innerHTML += '<tr><td><b>' + (j+1) + '.</td> </b><td>' + list[i].sender_name + '</td> <td class = "time"> ' + time_transfered +'</tr>';
        //outputRaffleEntries.innerHTML += '<tr><td><b>' + (i+1) + '.</td> </b><td>' + list[i].sender_name + '</td></tr>';
+
+         }
       j++; 
       }
       if(j==15){
