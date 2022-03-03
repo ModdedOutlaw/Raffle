@@ -5,22 +5,26 @@
   outputRaffleEntries.innerHTML = "";
   outputRaffleDates.innerHTML = "";
   var winner = parseInt("9");
-  const raffleStart = new Date('FEBRUARY 28, 22 12:00:00 GMT+00:00');
-  //const raffleStart = parseInt("1646187252500");
-  //const raffleStart = parseInt("1646187252500");
+  //const raffleStart = new Date('FEBRUARY 28, 22 12:00:00 GMT+00:00'); // raffleStart.getTime()
+
+  const raffleStart = parseInt("1646187252500");
   const raffleEnd = new Date('MARCH 7, 22 12:00:00 GMT+00:00');
 
   // milliseconds since Jan 1, 1970, 00:00:00.000 GMT
   //console.log(raffleStart.getTime());
 
   //outputRaffleDates.innerHTML += '<tr><td ><b>START DATE:  ' + raffleStart + '</b></td><br></tr><tr><td ><b>END DATE:  ' + raffleEnd + '</b></td></tr>';
-  const urlRaffleEntries = "https://wax.api.atomicassets.io/atomicassets/v1/transfers?recipient=moddedwax.gm&schema_name=miners&collection_name=upliftworld&after="+raffleStart.getTime()+"&page=1&limit=100&order=desc&sort=created";
+  const urlRaffleEntries = "https://wax.api.atomicassets.io/atomicassets/v1/transfers?recipient=moddedwax.gm&schema_name=miners&collection_name=upliftworld&after="+raffleStart+"&page=1&limit=100&order=desc&sort=created";
 
   fetch(urlRaffleEntries).then(function (res) {
     return res.json()
   }).then(function (data) {
+     
     
     let list = data.data;
+    console.log(list[0].assets[0].template.template_id);
+
+
 
     j =0;
 
