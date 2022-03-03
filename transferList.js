@@ -16,7 +16,9 @@
   //outputRaffleDates.innerHTML += '<tr><td ><b>START DATE:  ' + raffleStart + '</b></td><br></tr><tr><td ><b>END DATE:  ' + raffleEnd + '</b></td></tr>';
   const urlRaffleEntries = "https://wax.api.atomicassets.io/atomicassets/v1/transfers?recipient=moddedwax.gm&schema_name=miners&collection_name=upliftworld&after="+raffleStart+"&page=1&limit=100&order=desc&sort=created";
 
-  fetch(urlRaffleEntries).then(function (res) {
+ async function fetchRaffleEntries(){ 
+ 
+ const response = await fetch(urlRaffleEntries).then(function (res) {
     return res.json()
   }).then(function (data) {
      
@@ -51,3 +53,7 @@
     console.log(error);
 
   })
+
+}
+
+fetchRaffleEntries();
