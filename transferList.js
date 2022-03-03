@@ -4,7 +4,7 @@
 
   outputRaffleEntries.innerHTML = "";
   outputRaffleDates.innerHTML = "";
-  var winner = parseInt("9");
+  var winner = parseInt("1000");
   //const raffleStart = new Date('FEBRUARY 28, 22 12:00:00 GMT+00:00'); // raffleStart.getTime()
 
   const raffleStart = parseInt("1646187252500");
