@@ -1,3 +1,5 @@
+
+ async function fetchRaffleEntries(){ 
   const outputRaffleEntries = document.querySelector('.outputRaffleEntries');
   const outputRaffleDates = document.querySelector('.outputRaffleDates');
 
@@ -8,7 +10,7 @@
   //const raffleStart = new Date('FEBRUARY 28, 22 12:00:00 GMT+00:00'); // raffleStart.getTime()
 
   const raffleStart = parseInt("1646187252500");
-  const raffleEnd = new Date('MARCH 7, 22 12:00:00 GMT+00:00');
+  const raffleEnd = new Date('MARCH 8, 22 12:00:00 GMT+00:00');
 
   // milliseconds since Jan 1, 1970, 00:00:00.000 GMT
   //console.log(raffleStart.getTime());
@@ -16,36 +18,38 @@
   //outputRaffleDates.innerHTML += '<tr><td ><b>START DATE:  ' + raffleStart + '</b></td><br></tr><tr><td ><b>END DATE:  ' + raffleEnd + '</b></td></tr>';
   const urlRaffleEntries = "https://wax.api.atomicassets.io/atomicassets/v1/transfers?recipient=moddedwax.gm&schema_name=miners&collection_name=upliftworld&after="+raffleStart+"&page=1&limit=100&order=desc&sort=created";
 
- async function fetchRaffleEntries(){ 
- 
  const response = await fetch(urlRaffleEntries).then(function (res) {
     return res.json()
   }).then(function (data) {
      
     
     let list = data.data;
-    console.log(list[0].assets[0].template.template_id);
+    console.log(list);
 
+    raffleNumber = 1;
 
+  for(let totalEntries = list.length-1; totalEntries >= 0; totalEntries--){
 
-    j =0;
-
-  for(let i = list.length-1; i >= 0; i--){
-       var ms = list[i].created_at_time;
-       var time_transfered = new Date(parseInt(list[i].created_at_time));
+       var ms = list[totalEntries].created_at_time;
+       var time_transfered = new Date(parseInt(list[totalEntries].created_at_time));
        if (ms>raffleStart && ms<raffleEnd){
-         if(j==winner-1){
-          outputRaffleEntries.innerHTML += '<tr style="background-color: #06ffff"><td><b>' + (j+1) + '.</td> </b><td>' + list[i].sender_name + '</td> <td class = "time"> ' + time_transfered +'</tr>';
-
+         if(list[totalEntries].assets.length >= 2){
+           transferAmount = list[totalEntries].assets.length;
+           let assetIndex = 0;
+           while(transferAmount > 0){
+             if(list[totalEntries].assets[assetIndex].data.rarity == "Common"||list[totalEntries].assets[assetIndex].data.rarity == "Uncommon"){
+            outputRaffleEntries.innerHTML += '<tr ><td><b>' + raffleNumber + '.</td> </b><td>' + list[totalEntries].sender_name + '</td> <td class = "time"> ' + time_transfered +'</tr>';
+            raffleNumber++;
+             }
+             assetIndex++;
+            transferAmount--;
+           }
          }else{
-       outputRaffleEntries.innerHTML += '<tr><td><b>' + (j+1) + '.</td> </b><td>' + list[i].sender_name + '</td> <td class = "time"> ' + time_transfered +'</tr>';
-       //outputRaffleEntries.innerHTML += '<tr><td><b>' + (i+1) + '.</td> </b><td>' + list[i].sender_name + '</td></tr>';
-
-         }
-      j++; 
-      }
-      if(j==15){
-        outputRaffleEntries.innerHTML +='<hr>'
+          if(list[totalEntries].assets[0].data.rarity == "Common"||list[totalEntries].assets[0].data.rarity == "Uncommon"){
+            outputRaffleEntries.innerHTML += '<tr ><td><b>' + raffleNumber + '.</td> </b><td>' + list[totalEntries].sender_name + '</td> <td class = "time"> ' + time_transfered +'</tr>';
+            raffleNumber++; 
+             }
+            }
       }
     }
 
@@ -56,4 +60,4 @@
 
 }
 
-fetchRaffleEntries();
+//fetchRaffleEntries();
