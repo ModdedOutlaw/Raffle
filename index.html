@@ -16,22 +16,22 @@
 
 </head>
 
-<body onload="fetchRaffleEntries()">
+<body onload="fetchRaffleEntries();fetchUpliftiumStats()" >
 <!-- Header content -->
-<header>
+<header >
   <div class="profilePhoto"> 
     <!-- Profile photo --> 
     <img src="AboutPageAssets/images/uplift-world-community-logo.png" alt="Uplift Community Project" width="280" height="200"> 
   </div>
 
   <!-- Identity details -->
-  <section class="profileHeader">
+  <section class="profileHeader" >
     <h1>MIO raffle</h1>
     <h3>Every 15 entries another MIO will be added to the prize pool!</h3>
     <h3>Final drawing will be Friday March 4th 8:00PM EST. </h3>
 
     <hr>
-    <p>Transfer any common miner to the wallet <strong>moddedwax.gm</strong> ONE AT A TIME. This wallet will only have the transfered miners.  MIOs awarded as prizes will be sent from either of my two personal wallets. Entries will post immediately on this page. The order in which the miners are received will be the raffle numbers.  1 MIO awarded for every 15 miners received. I will use a discord bot's /roll to generate the random winning numbers in the <a href="https://discord.com/channels/805449582124466206/810220726262956033" target="">community board channel</a>.&nbsp; Remember to transfer miners ONE AT A TIME. Good Luck! - ModdedOutlaw&nbsp;</p>
+    <p>Transfer any common or uncommon miner to the wallet <strong>moddedwax.gm</strong>. This wallet will only have the transfered miners.  MIOs awarded as prizes will be sent from either of my two personal wallets. Entries will post immediately on this page. The order in which the miners are received will be the raffle numbers.  1 MIO awarded for every 15 miners received. I will use a discord bot's /roll to generate the random winning numbers in the <a href="https://discord.com/channels/805449582124466206/810220726262956033" target="">community board channel</a>.&nbsp; Remember to transfer miners ONE AT A TIME. Good Luck! - ModdedOutlaw&nbsp;</p>
   </section>
 </header>
 <!-- content -->
@@ -39,7 +39,8 @@
   <!-- Contact details -->
   <section class="section1">
     <div class = "outputRaffleDates"></div>
-    <h2 class="sectionTitle">Raffle Entries</h2>
+    <div class = "outputUpliftiumSales"></div>
+    <h2 class="sectionTitle" >Raffle Entries</h2>
     <div class="section1Content">
 		<table align="center"  class="outputRaffleEntries">
       <script src="transferList.js"></script> 
