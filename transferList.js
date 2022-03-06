@@ -154,7 +154,7 @@ async function fetchCommonMinerSales() {
 
   console.log(minerUrlArray);
 
-  const imgBegin = "/AboutPageAssets/images/";
+  const imgBegin = "AboutPageAssets/images/";
   const saleLink = "https://wax.atomichub.io/market/sale/";
 
   outputCommonMinerSales.innerHTML += "<table>";
