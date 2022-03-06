@@ -75,7 +75,11 @@ header .socialNetworkNavBar .socialNetworkNav img:hover {
 	opacity: 0.5;
 }
 /* Main Content sections */
+.outputCommonMinerSales{
+	float:left;
+	width:50%;
 
+}
 .time{
 	font-size: 15px;
 }

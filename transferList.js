@@ -97,13 +97,12 @@ async function fetchCommonMinerPrice() {
 
   commonMinerArray.forEach(element => {
     minerUrlArray[i] = urlCommonMinerPriceBlank.concat(element);
-
-
     i++;
   });
 
   i = 0;
 
+  
   minerUrlArray.forEach(element => {
 
     fetch(element).then(function (res) {
@@ -111,7 +110,7 @@ async function fetchCommonMinerPrice() {
     }).then(function (data) {
 
       let list = data.data;
-
+      
       console.log("Median Price Common Miner #" + commonMinerArray[i] + " = " + list[0].median / 100000000);
       i++;
 
@@ -127,4 +126,66 @@ async function getJSON(url) {
   return fetch(url)
       .then((response)=>response.json())
       .then((responseJson)=>{return responseJson});
+}
+
+
+async function fetchCommonMinerSales() {
+
+  const urlCommonMinerSalesBlankStart = "https://wax.api.atomicassets.io/atomicmarket/v1/sales?state=1&collection_name=upliftworld&schema_name=miners&template_id="
+  const urlCommonMinerSalesBlankEnd = "&page=1&limit=5&order=asc&sort=price";
+  
+  const outputCommonMinerSales = document.querySelector('.outputCommonMinerSales');
+
+  const commonMinerArray = [197290, 196981, 196818, 181602, 181594]
+
+  const minerUrlArray = [];
+
+  outputCommonMinerSales.innerHTML = "";
+
+  let i = 0;
+
+  commonMinerArray.forEach(element => {
+    minerUrlArray[i] = urlCommonMinerSalesBlankStart.concat(element);
+    minerUrlArray[i] = minerUrlArray[i].concat(urlCommonMinerSalesBlankEnd);
+    i++;
+  });
+
+  i = 0;
+
+  console.log(minerUrlArray);
+
+  const imgBegin = "/AboutPageAssets/images/";
+  const saleLink = "https://wax.atomichub.io/market/sale/";
+
+  outputCommonMinerSales.innerHTML += "<table>";
+  minerUrlArray.forEach(element => {
+
+    fetch(element).then(function (res) {
+      return res.json()
+    }).then(function (data) {
+
+      let list = data.data;
+
+      console.log(list);
+
+      console.log(list[0].sale_id);
+
+      let imgUrl = imgBegin.concat(list[0].assets[0].template.immutable_data.img);
+
+      let saleUrl = saleLink.concat(list[0].sale_id)
+
+      outputCommonMinerSales.innerHTML += '<center><br><tr><td><img src="' + imgUrl 
+      + '.jpeg" style="display: in-line;margin-left: auto;margin-right: auto;width: 20%;"></td><br><td>  <a href = "' + saleUrl 
+      + '" target = "_blank">Current Lowest Price = ' + list[0].listing_price/100000000 
+      +'</a></td></tr></center>';
+      i++;
+
+    }).catch(function (error) {
+      console.log(error);
+
+    })
+  });
+  outputCommonMinerSales.innerHTML += "</table>";
+
+
 }
