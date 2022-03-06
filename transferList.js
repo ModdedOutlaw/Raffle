@@ -175,7 +175,7 @@ async function fetchCommonMinerSales() {
       let saleUrl = saleLink.concat(list[0].sale_id)
 
       outputCommonMinerSales.innerHTML += '<center><br><tr><td><img src="' + imgUrl 
-      + '.jpeg" style="display: in-line;margin-left: auto;margin-right: auto;width: 20%;"></td><br><td>  <a href = "' + saleUrl 
+      + '.jpeg" style="display: in-line;margin-left: auto;margin-right: auto;width: 50%;"></td><br><td>  <a href = "' + saleUrl 
       + '" target = "_blank">Current Lowest Price = ' + list[0].listing_price/100000000 
       +'</a></td></tr></center>';
       i++;
@@ -198,7 +198,7 @@ async function fetchLandKeySales() {
   
   const outputLandKeySales = document.querySelector('.outputLandKeySales');
 
-  const arrayLandKeys = [172596,110840,121669,172599]
+  const arrayLandKeys = [172596,110840,121669,172599,161772,161765]
 
   const landKeyUrlArray = [];
 
