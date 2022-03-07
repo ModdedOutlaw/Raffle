@@ -235,42 +235,54 @@ async function fetchLandKeySales() {
         //console.log(element.assets[0].immutable_data.world);
 
         if(element.assets[0].immutable_data.world == "Londom" && Londom == 0){
-          let saleUrl = saleLink.concat(element.sale_id)
+          let saleUrl = saleLink.concat(element.sale_id);
+          let imgUrl = imgBegin.concat(element.assets[0].template.immutable_data.img);
+
           console.log(element.sale_id);
           console.log(element.assets[0].immutable_data.world);
           console.log(saleUrl);
           Londom = 1;
+ 
+          outputLandKeySales.innerHTML += '<center><br><tr><td><img src="' + imgUrl 
+          + '.jpeg" style="display: in-line;margin-left: auto;margin-right: auto;width: 20%;"></td><br><td>  <a href = "' + saleUrl 
+          + '" target = "_blank">Current Lowest Price = ' + element.listing_price/100000000 
+          +'</a></td></tr></center>';
         }
         if(element.assets[0].immutable_data.world == "Upluft" && Upluft == 0){
-          let saleUrl = saleLink.concat(element.sale_id)
+          let saleUrl = saleLink.concat(element.sale_id);
+          let imgUrl = imgBegin.concat(element.assets[0].template.immutable_data.img);
+
           console.log(element.sale_id);
           console.log(element.assets[0].immutable_data.world);
           console.log(saleUrl);
           Upluft = 1;
+
+          outputLandKeySales.innerHTML += '<center><br><tr><td><img src="' + imgUrl 
+          + '.jpeg" style="display: in-line;margin-left: auto;margin-right: auto;width: 20%;"></td><br><td>  <a href = "' + saleUrl 
+          + '" target = "_blank">Current Lowest Price = ' + element.listing_price/100000000 
+          +'</a></td></tr></center>';
+
         }
         if(element.assets[0].immutable_data.world == "chikin-kaah" && 	chikinKaah == 0){
-          let saleUrl = saleLink.concat(element.sale_id)
+          let saleUrl = saleLink.concat(element.sale_id);
+          let imgUrl = imgBegin.concat(element.assets[0].template.immutable_data.img);
+
           console.log(element.sale_id);
           console.log(element.assets[0].immutable_data.world);
           console.log(saleUrl);
           chikinKaah = 1;
+
+          outputLandKeySales.innerHTML += '<center><br><tr><td><img src="' + imgUrl 
+          + '.jpeg" style="display: in-line;margin-left: auto;margin-right: auto;width: 20%;"></td><br><td>  <a href = "' + saleUrl 
+          + '" target = "_blank">Current Lowest Price = ' + element.listing_price/100000000 
+          +'</a></td></tr></center>';
+
         }
-
-
       });
+
+
       //console.log(list[0].sale_id);
       //console.log(list[0].assets[0].immutable_data.world);
-
-      let imgUrl = imgBegin.concat(list[0].assets[0].template.immutable_data.img);
-
-      let saleUrl = saleLink.concat(list[0].sale_id)
-
-      outputLandKeySales.innerHTML += '<center><br><tr><td><img src="' + imgUrl 
-      + '.jpeg" style="display: in-line;margin-left: auto;margin-right: auto;width: 20%;"></td><br><td>  <a href = "' + saleUrl 
-      + '" target = "_blank">Current Lowest Price = ' + list[0].listing_price/100000000 
-      +'</a></td></tr></center>';
-      i++;
-
     }).catch(function (error) {
       console.log(error);
 
