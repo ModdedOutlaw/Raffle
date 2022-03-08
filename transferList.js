@@ -1,14 +1,15 @@
 async function fetchRaffleEntries() {
   const outputRaffleEntries = document.querySelector('.outputRaffleEntries');
   const outputRaffleDates = document.querySelector('.outputRaffleDates');
-  const raffleStart = parseInt("1646187252500");
-  const raffleEnd = new Date('MARCH 8, 22 12:00:00 GMT+00:00');
+  const raffleStart = new Date('MARCH 7, 22 12:00:00 GMT+00:00');
+  const raffleEnd = new Date('MARCH 12, 22 12:00:00 GMT+00:00');
   const winningNumber = 0;
-
+  
+  console.log(raffleStart.getTime());
   outputRaffleEntries.innerHTML = "";
   outputRaffleDates.innerHTML = "";
 
-  const urlRaffleEntries = "https://wax.api.atomicassets.io/atomicassets/v1/transfers?recipient=moddedwax.gm&schema_name=miners&collection_name=upliftworld&after=" + raffleStart + "&page=1&limit=100&order=desc&sort=created";
+  const urlRaffleEntries = "https://wax.api.atomicassets.io/atomicassets/v1/transfers?recipient=moddedwax.gm&schema_name=miners&collection_name=upliftworld&after=" + raffleStart.getTime() + "&page=1&limit=100&order=desc&sort=created";
 
   const response = await fetch(urlRaffleEntries).then(function (res) {
     return res.json()
